@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="
+{% if weather_data %}
+  {% set main = weather_data['weather'][0]['main'].lower() %}
+  {% if 'rain' in main or 'drizzle' in main %}
+    rain
+  {% elif 'snow' in main %}
+    snow
+  {% elif 'cloud' in main %}
+    cloudy
+  {% else %}
+    sunny
+  {% endif %}
+{% else %}
+  default
+{% endif %}
+">
+
+<div class="container">
+    <header>
+        <h1>🌦️ Weather Forecast</h1>
+        <p>Real-time weather updates and historical trends</p>
+    </header>
+
+    <form method="POST" class="search-container">
+        <input type="text" name="city" class="search-input" placeholder="Enter city name..." required>
+        <button type="submit" class="search-button">Search</button>
+    </form>
+
+    {% if error_message %}
+        <div class="alert alert-danger">{{ error_message }}</div>
+    {% endif %}
+
+    {% if weather_data %}
+    <div class="weather-card mt-3">
+        <h2>{{ weather_data.name }}, {{ weather_data.sys.country }}</h2>
+        <p class="text-capitalize">{{ weather_data.weather[0].description }}</p>
+        <img src="https://openweathermap.org/img/wn/{{ weather_data.weather[0].icon }}@4x.png" alt="Weather icon" width="100">
+        <h3>{{ weather_data.main.temp | round }}°C</h3>
+        <p>Feels like: {{ weather_data.main.feels_like | round }}°C</p>
+
+        <div class="row mt-3">
+            <div class="col-6">💧 Humidity: {{ weather_data.main.humidity }}%</div>
+            <div class="col-6">💨 Wind: {{ weather_data.wind.speed }} m/s</div>
+            <div class="col-6">🌡 Pressure: {{ weather_data.main.pressure }} hPa</div>
+            <div class="col-6">👁 Visibility: {{ (weather_data.visibility / 1000) | round(1) }} km</div>
+        </div>
+    </div>
+
+    <div class="weather-card mt-3">
+        <h4>📈 Historical Weather Data</h4>
+        <p>Average temperature on this date (past 5 years): <strong>{{ historical_avg }}°C</strong></p>
+        <p>Today is: <strong>{{ comparison }}</strong></p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

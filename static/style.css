@@ -1,0 +1,68 @@
+body {
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.5s;
+}
+
+/* Default gradient */
+body.default {
+    background: url('https://play-lh.googleusercontent.com/hhVW5v4Ha-8okfvk-s3fo2wIc09R1zrs_lznBF4d4QHV7mTbXbK_F3rb-98E3ujI5CE=w3840-h2160-rw') center center/cover no-repeat;
+
+}
+
+/* Sunny */
+body.sunny {
+    background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F3265126.jpg&f=1&nofb=1&ipt=a18e12339df63f69aaf6b3b8c2479660dc76610bc4a5c0150d6b138b1b867454') center center/cover no-repeat;
+}
+
+/* Cloudy */
+body.cloudy {
+    background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F158163%2Fclouds-cloudporn-weather-lookup-158163.jpeg%3Fcs%3Dsrgb%26dl%3Dclouds-cloudscape-cloudy-158163.jpg%26fm%3Djpg&f=1&nofb=1&ipt=4a2a07ce02d907bcf8041daf43a45251366b078cbbc9f1df22077672bfce5841') center center/cover no-repeat;
+}
+
+/* Rain */
+body.rain {
+    background: url('https://imgs.search.brave.com/8_ej_A3KRK9BgiZ5RpWRqUIXTgTY0ahupBIPSyxsEoM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9yYWluLWRyb3Bz/LWZhbGxpbmctdHJl/ZV83ODM4ODQtNDUw/MzEzLmpwZz9zZW10/PWFpc19oeWJyaWQm/dz03NDAmcT04MA') center center/cover repeat;
+}
+
+/* Snow */
+body.snow {
+    background: url('https://imgs.search.brave.com/bTr-M3_zxd7U7cCqUdhdQHmk1Hkxd-h2-Wb54ISBwgM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTU4/MjUzMDY2NS9waG90/by9zbm93LWdsYWRl/LWluLWZvcmVzdC53/ZWJwP2E9MSZiPTEm/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9UkJK/Z2pGWHJrM2pEcDJp/bVF2eTZGOUFUOWVq/YkFoTHdXZTFlUU5n/R29rTT0') center center/cover repeat;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+}
+
+.weather-card {
+    background: rgba(255,255,255,0.15);
+    border-radius: 25px;
+    padding: 25px;
+    backdrop-filter: blur(15px);
+    margin-top: 20px;
+}
+
+.search-container {
+    margin: 20px 0;
+}
+
+.search-input {
+    border-radius: 25px;
+    border: none;
+    padding: 10px;
+    width: 70%;
+}
+
+.search-button {
+    border-radius: 25px;
+    border: none;
+    padding: 10px 20px;
+    background-color: #0284c7;
+    color: #fff;
+}
