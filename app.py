@@ -2,10 +2,12 @@ from flask import Flask, render_template, request
 import requests
 from datetime import datetime, timedelta
 from meteostat import Point, Daily
+import os  # <-- for environment variables
 
 app = Flask(__name__)
 
-API_KEY = "d25d7f54b706acec2c89459c2a1508b3"
+# Get API key from environment variable
+API_KEY = os.environ.get("API_KEY")
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 @app.route("/", methods=["GET", "POST"])
